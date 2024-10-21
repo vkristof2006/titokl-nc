@@ -27,10 +27,23 @@ input[type="text"] {
 
 button {
     padding: 10px;
-    background-color: #28a745;
     border: none;
     color: white;
     cursor: pointer;
+    margin: 20px; /* Növeljük a távolságot */
+    display: inline-block; /* Blokk szintű elem, hogy elhelyezhető legyen */
+}
+
+button.red-box {
+    background-color: #dc3545; /* Piros */
+}
+
+button.blue-box {
+    background-color: #007bff; /* Kék */
+}
+
+button.green-box {
+    background-color: #28a745; /* Zöld */
 }
 
 button:hover {
@@ -41,9 +54,12 @@ button:hover {
     margin-top: 10px;
 }
 
-.green-box {
-    width: 100px;
-    height: 100px;
-    background-color: green;
-    position: absolute; /* Absolút elhelyezés a véletlenszerű pozicionáláshoz */
+.color-box {
+    width: 100px;  /* Négyzet szélessége */
+    height: 100px; /* Négyzet magassága */
+    position: absolute; /* Középre helyezéshez */
+    top: 50%; /* 50% a magasságból */
+    left: 50%; /* 50% a szélesságból */
+    transform: translate(-50%, -50%); /* Középre igazítás */
+    display: none; /* Alapértelmezés szerint rejtve */
 }

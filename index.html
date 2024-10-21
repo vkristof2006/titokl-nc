@@ -24,13 +24,15 @@
 
     <!-- Oldal 2 -->
     <div class="page" id="page2" style="display: none;">
-        <h2>Feladat 2: Színek a szobában!</h2>
-        <p>Hány piros színű tárgy található a szobában? Kattints a megfelelő dobozra!</p>
-        <button onclick="checkBoxColor('red', 'page2', 'page3')">Piros doboz</button>
-        <button onclick="checkBoxColor('blue', 'page2', 'page3')">Kék doboz</button>
-        <button onclick="checkBoxColor('green', 'page2', 'page3')">Zöld doboz</button>
+        <h2>Feladat 2: A rejtvény megfejtése!</h2>
+        <p>Kattints a piros dobozra a válaszért!</p>
+        <button onclick="checkBoxColor('red', 'page2', 'page3')" class="red-box">Piros doboz</button>
+        <button onclick="checkBoxColor('blue', 'page2', 'page3')" class="blue-box">Kék doboz</button>
+        <button onclick="checkBoxColor('green', 'page2', 'page3')" class="green-box">Zöld doboz</button>
         <p id="result2" class="result"></p>
-        <div id="colorBox" style="display:none; width: 100px; height: 100px; margin: 20px auto; text-align: center; line-height: 100px;"></div>
+        
+        <!-- Színes négyzet -->
+        <div id="colorBox" class="color-box" style="display: none;"></div>
     </div>
 
     <!-- Oldal 3 -->
@@ -46,9 +48,8 @@
     <div class="page" id="page4" style="display: none;">
         <h2>Feladat 4: Az utolsó kihívás!</h2>
         <p>Hány zöld láda rejtőzik a szobában? Ne hagyd figyelmen kívül!</p>
-        <div id="boxesContainer" style="position: relative; height: 400px;"></div>
         <input type="text" id="answer4" placeholder="Írd be a válaszodat">
-        <button onclick="checkAnswer('answer4', '3', 'final')">Ellenőrizd a választ</button>
+        <button onclick="checkAnswer('answer4', '3', 'page4', 'final')">Ellenőrizd a választ</button>
         <p id="result4" class="result"></p>
     </div>
 
