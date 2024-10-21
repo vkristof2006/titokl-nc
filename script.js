@@ -4,7 +4,7 @@ function showRedBoxCount() {
     setTimeout(() => {
         document.getElementById('page2').style.display = 'none';
         document.getElementById('page3').style.display = 'block';
-    }, 2000); // 2 másodperc múlva vált a következő oldalra
+    }, 2000);
 }
 
 function checkAnswer(inputId, correctAnswer, currentPage, nextPage) {
@@ -14,19 +14,62 @@ function checkAnswer(inputId, correctAnswer, currentPage, nextPage) {
     if (userAnswer === correctAnswer) {
         resultElement.textContent = "Helyes válasz!";
         resultElement.style.color = "green";
-
-        // Jelenlegi oldal elrejtése
-        document.getElementById(currentPage).style.display = 'none';
-
-        // Következő oldal megjelenítése
-        if (nextPage === 'final') {
-            document.getElementById('final').style.display = 'block';
-        } else {
-            document.getElementById(nextPage).style.display = 'block';
-        }
     } else {
         resultElement.textContent = "Helytelen válasz, próbáld újra!";
         resultElement.style.color = "red";
+    }
+
+    document.getElementById(currentPage).style.display = 'none';
+    document.getElementById(nextPage).style.display = 'block';
+}
+
+function checkBoxColor(color, currentPage, nextPage) {
+    const resultElement = document.getElementById('result2');
+    const colorBox = document.getElementById('colorBox');
+
+    colorBox.style.backgroundColor = color;
+    colorBox.style.display = 'block'; // Négyzet megjelenítése
+
+    if (color === 'red') {
+        colorBox.textContent = "Véletlenszerű szám: 4"; // Piros doboz esetén
+        resultElement.textContent = "Helyes válasz!";
+        resultElement.style.color = "green";
+    } else {
+        let randomNumber = Math.floor(Math.random() * 10) + 1; // Véletlenszerű szám 1-10 között
+        while (randomNumber === 4) {
+            randomNumber = Math.floor(Math.random() * 10) + 1; // Ha 4, újra generál
+        }
+        colorBox.textContent = `Véletlenszerű szám: ${randomNumber}`; // Megjeleníti a véletlenszámot
+        colorBox.style.color = "black"; // Szöveg színének beállítása
+    }
+
+    // Mindig vált a következő oldalra
+    setTimeout(() => {
+        document.getElementById(currentPage).style.display = 'none';
+        document.getElementById(nextPage).style.display = 'block';
+    }, 2000);
+}
+
+function placeGreenBoxes() {
+    const positions = [
+        { top: '10%', left: '10%' }, // Cím mellett
+        { top: '50%', left: '50%' }, // Középen
+        { bottom: '10%', right: '10%' }, // Jobb alsó sarok
+        { top: '10%', right: '10%' }, // Jobb felső sarok
+        { bottom: '10%', left: '10%' } // Bal alsó sarok
+    ];
+    const boxesContainer = document.getElementById('boxesContainer');
+
+    for (let i = 0; i < 3; i++) {
+        const randomIndex = Math.floor(Math.random() * positions.length);
+        const position = positions[randomIndex];
+        const box = document.createElement('div');
+        box.className = 'green-box';
+        box.style.top = position.top;
+        box.style.left = position.left;
+
+        boxesContainer.appendChild(box);
+        positions.splice(randomIndex, 1); // Eltávolítja a pozíciót, hogy ne ismétlődjön
     }
 }
 
@@ -42,4 +85,9 @@ function checkFinalCode() {
         resultElement.textContent = "Helytelen kód, próbáld újra!";
         resultElement.style.color = "red";
     }
+}
+
+// Hívjuk meg a green box funkciót, amikor az oldal betöltődik
+window.onload = function() {
+    placeGreenBoxes();
 }

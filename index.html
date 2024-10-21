@@ -24,10 +24,13 @@
 
     <!-- Oldal 2 -->
     <div class="page" id="page2" style="display: none;">
-        <h2>Feladat 2: A rejtvény megfejtése!</h2>
-        <p>Mennyi piros dobozt találsz a szobában? Kattints a piros dobozra a válaszért!</p>
-        <button onclick="showRedBoxCount()">Piros doboz</button>
+        <h2>Feladat 2: Színek a szobában!</h2>
+        <p>Hány piros színű tárgy található a szobában? Kattints a megfelelő dobozra!</p>
+        <button onclick="checkBoxColor('red', 'page2', 'page3')">Piros doboz</button>
+        <button onclick="checkBoxColor('blue', 'page2', 'page3')">Kék doboz</button>
+        <button onclick="checkBoxColor('green', 'page2', 'page3')">Zöld doboz</button>
         <p id="result2" class="result"></p>
+        <div id="colorBox" style="display:none; width: 100px; height: 100px; margin: 20px auto; text-align: center; line-height: 100px;"></div>
     </div>
 
     <!-- Oldal 3 -->
@@ -43,6 +46,7 @@
     <div class="page" id="page4" style="display: none;">
         <h2>Feladat 4: Az utolsó kihívás!</h2>
         <p>Hány zöld láda rejtőzik a szobában? Ne hagyd figyelmen kívül!</p>
+        <div id="boxesContainer" style="position: relative; height: 400px;"></div>
         <input type="text" id="answer4" placeholder="Írd be a válaszodat">
         <button onclick="checkAnswer('answer4', '3', 'final')">Ellenőrizd a választ</button>
         <p id="result4" class="result"></p>
@@ -65,54 +69,6 @@
 <footer>
     <p>&copy; 2024 Minden jog fenntartva.</p>
 </footer>
-
-<script>
-    function showRedBoxCount() {
-        document.getElementById('result2').textContent = "A válasz: 4";
-        document.getElementById('result2').style.color = "green";
-        setTimeout(() => {
-            document.getElementById('page2').style.display = 'none';
-            document.getElementById('page3').style.display = 'block';
-        }, 2000); 
-    }
-
-    function checkAnswer(inputId, correctAnswer, currentPage, nextPage) {
-        const userAnswer = document.getElementById(inputId).value;
-        const resultElement = document.getElementById('result' + inputId.charAt(inputId.length - 1));
-
-        if (userAnswer === correctAnswer) {
-            resultElement.textContent = "Helyes válasz!";
-            resultElement.style.color = "green";
-
-           
-            document.getElementById(currentPage).style.display = 'none';
-
-            
-            if (nextPage === 'final') {
-                document.getElementById('final').style.display = 'block';
-            } else {
-                document.getElementById(nextPage).style.display = 'block';
-            }
-        } else {
-            resultElement.textContent = "Helytelen válasz, próbáld újra!";
-            resultElement.style.color = "red";
-        }
-    }
-
-    function checkFinalCode() {
-        const userCode = document.getElementById('finalCode').value.toUpperCase();
-        const correctCode = "JDWH"; // A titkosított kód
-        const resultElement = document.getElementById('codeResult');
-
-        if (userCode === correctCode) {
-            resultElement.textContent = "Helyes kód!";
-            resultElement.style.color = "green";
-        } else {
-            resultElement.textContent = "Helytelen kód, próbáld újra!";
-            resultElement.style.color = "red";
-        }
-    }
-</script>
 
 </body>
 </html>
