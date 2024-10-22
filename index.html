@@ -47,7 +47,7 @@
     <!-- Oldal 4 -->
     <div class="page" id="page4" style="display: none;">
         <h2>Feladat 4: Az utolsó kihívás!</h2>
-        <p>Hány zöld láda rejtőzik a szobában? Ne hagyd figyelmen kívül!</p>
+        <p>Mennyi van a 3. sorban a legkisebb könyvből?</p>
         <input type="text" id="answer4" placeholder="Írd be a válaszodat">
         <button onclick="checkAnswer('answer4', '3', 'page4', 'final')">Ellenőrizd a választ</button>
         <p id="result4" class="result"></p>
@@ -56,10 +56,8 @@
     <!-- Végső üzenet -->
     <div class="page" id="final" style="display: none;">
         <h2>Gratulálunk! Megoldottad a feladatokat!</h2>
-        <p>A kapott számok betűkké alakítva: 6, 4, 7, 3. Mi a kód?</p>
-        <p><strong>6 = G, 4 = A, 7 = T, 3 = E</strong></p>
+        <p>A kapott számok betűkké alakítva: 6473. Mi a kód? (Ceasar-jelkód 3-mas eltolás)</p>
         <p>A titkosított végeredmény: <input type="text" id="finalCode" placeholder="Írd be a kódot"></p>
-        <p><strong>Tippek: 3-as Caesar eltolással a válasz: JDWH</strong></p>
         <button onclick="checkFinalCode()">Ellenőrizd a kódot</button>
         <p id="codeResult" class="result"></p>
     </div>
