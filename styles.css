@@ -30,24 +30,24 @@ button {
     border: none;
     color: white;
     cursor: pointer;
-    margin: 20px; /* Növeljük a távolságot */
-    display: inline-block; /* Blokk szintű elem, hogy elhelyezhető legyen */
+    margin: 20px;
+    display: inline-block;
 }
 
 button.red-box {
-    background-color: #dc3545; /* Piros */
+    background-color: red; 
 }
 
 button.blue-box {
-    background-color: #007bff; /* Kék */
+    background-color: blue; 
 }
 
 button.green-box {
-    background-color: #28a745; /* Zöld */
+    background-color: green; 
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: green;
 }
 
 .result {
@@ -55,11 +55,11 @@ button:hover {
 }
 
 .color-box {
-    width: 100px;  /* Négyzet szélessége */
-    height: 100px; /* Négyzet magassága */
-    position: absolute; /* Középre helyezéshez */
-    top: 50%; /* 50% a magasságból */
-    left: 50%; /* 50% a szélesságból */
-    transform: translate(-50%, -50%); /* Középre igazítás */
-    display: none; /* Alapértelmezés szerint rejtve */
+    width: 100px;  
+    height: 100px;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    display: none; 
 }
